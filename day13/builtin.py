@@ -40,7 +40,9 @@ l2 = [('喜羊羊',18),('懒羊羊',16),('灰太狼',35),('小灰灰',3)]
 print(min(l2,key=lambda arg: arg[1])[0])
 
 
-# sort()排序函数
+# max()
+
+# sorted() 排序函数
 print(sorted(l2,key=lambda arg: arg[1],reverse=True))
 
 
@@ -51,4 +53,4 @@ print(sorted(l2,key=lambda arg: arg[1],reverse=True))
 
 # sum() 求和
 
-# 
+# reduce()

@@ -10,6 +10,7 @@
 
 # 大作业：使用装饰器模拟博客园登录
 
+<<<<<<< HEAD
 # 【version 1】
 
 # status_dict = {
@@ -107,6 +108,8 @@
 
 import os
 
+=======
+>>>>>>> f0e3b0dc3d025207f9f39b7457e966677a8e3887
 status_dict = {
     'username': None,
     'password': None,
@@ -122,6 +125,7 @@ def get_user_pwd():
             user_dict[line_list[0].strip()] = line_list[1].strip()
     return user_dict
 
+<<<<<<< HEAD
 # 获取文件转换成列表（用户名）
 def get_user_name():
     name_list = []
@@ -131,6 +135,8 @@ def get_user_name():
     return name_list
 
 # 登录
+=======
+>>>>>>> f0e3b0dc3d025207f9f39b7457e966677a8e3887
 def login():
     u_dict = get_user_pwd()
     count = 1
@@ -148,6 +154,7 @@ def login():
             print('登录失败！请检查用户名或密码')
         count += 1
     if count >= 4:
+<<<<<<< HEAD
         print('尝试登录次数太多，稍后再试吧......')
         return False
 
@@ -177,6 +184,22 @@ def register():
 
 def auth(f):
     ''' 
+=======
+        print('尝试次数太多，稍后再试吧......')
+        return False
+
+def register():
+    username = input('请输入新注册用户名：').strip()
+    password = input(f'请输入新注册用户{username}的密码：').strip()
+    with open('day14\\register',encoding='utf-8',mode='a') as f:
+        f.write('\n')
+        f.write(username+'|'+password)
+    print('注册成功！')
+    return True
+
+def auth(f):
+    '''
+>>>>>>> f0e3b0dc3d025207f9f39b7457e966677a8e3887
     装饰器完成：访问装饰器函数之前，写一个三次登录认证的功能。
     登录成功：让其访问被装饰的函数，登录没有成功，不让访问。
     :param f
@@ -190,7 +213,11 @@ def auth(f):
             return ret
         else:
             while True:
+<<<<<<< HEAD
                 choose = input('【注册(1) or 登录(2)】：')
+=======
+                choose = input('注册(1) or 登录(2)：')
+>>>>>>> f0e3b0dc3d025207f9f39b7457e966677a8e3887
                 if choose == '1':
                    ret1 = register()
                 elif choose == '2':
@@ -199,12 +226,16 @@ def auth(f):
                         ret = f(*args,**kwargs)
                         return ret
                         break
+<<<<<<< HEAD
                 elif choose.upper() == 'Q':
                     break
+=======
+>>>>>>> f0e3b0dc3d025207f9f39b7457e966677a8e3887
                 else:
                     continue
     return inner
 
+<<<<<<< HEAD
 # 文章模块
 @auth
 def article():
@@ -322,3 +353,21 @@ def main():
 
 if __name__ == '__main__':
     main()
+=======
+
+@auth
+def article():
+    print('欢迎访问文章页面！')
+
+@auth    
+def comment():
+    print('欢迎访问评论页面！')
+
+@auth    
+def dariy():
+    print('欢迎访问日记页面！')
+
+article()
+comment()
+dariy()
+>>>>>>> f0e3b0dc3d025207f9f39b7457e966677a8e3887
